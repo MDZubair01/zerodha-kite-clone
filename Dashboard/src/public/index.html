@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #444;
+}
+
+/* ==========================================
+   TopBar Header
+========================================== */
+.topbar-container {
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+.indices-container {
+  flex-basis: 32%;
+  height: 100%;
+  padding: 0 25px;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nifty,
+.sensex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.index {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.index-points {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #df514c;
+}
+
+.menu-container {
+  flex-basis: 68%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+
+.menu-container .logo {
+  height: 16px;
+  width: auto;
+  margin-right: auto;
+  margin-left: 20px;
+}
+
+.menus {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.menus li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: color 0.15s ease;
+}
+
+.menus li a:hover {
+  color: #ff5722;
+}
+
+.menu-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #e0e0e0;
+  margin: 0 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #fce4ec;
+  color: #e91e63;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.username {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #666;
+}
+
+/* ==========================================
+   Dashboard Shell Layout
+========================================== */
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  height: 91vh;
+}
+
+.watchlist-container {
+  flex-basis: 32%;
+  height: 100%;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.content {
+  flex-basis: 68%;
+  height: 100%;
+  padding: 40px 50px;
+  overflow-y: auto;
+}
+
+/* ==========================================
+   Watchlist Styles
+========================================== */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.search-container .search {
+  border: none;
+  outline: none;
+  width: 80%;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.search-container .counts {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.watchlist-container .list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.watchlist-container .list li.watchlist-item {
+  position: relative;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 14px 20px;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.watchlist-container .list li.watchlist-item:hover {
+  background-color: #fbfbfb;
+}
+
+.watchlist-container .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.watchlist-container .item p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.itemInfo .percent {
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.itemInfo .arrow {
+  font-size: 0.8rem;
+}
+
+.itemInfo .price {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #444;
+  min-width: 55px;
+  text-align: right;
+}
+
+.watchlist-container .actions {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fbfbfb;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.watchlist-container .actions button {
+  padding: 4px 10px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.watchlist-container .actions .buy {
+  background-color: #4184f3;
+  color: #fff;
+}
+
+.watchlist-container .actions .sell {
+  background-color: #ff5722;
+  color: #fff;
+}
+
+.watchlist-container .actions .action {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+/* Colors */
+.down {
+  color: #df514c !important;
+}
+
+.up {
+  color: #4caf50 !important;
+}
+
+/* ==========================================
+   Summary Widgets
+========================================== */
+.username-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #444;
+  margin: 0 0 16px 0;
+}
+
+.divider {
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+  margin: 18px 0 28px 0;
+}
+
+.section span p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 22px;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.data .first {
+  width: 200px;
+}
+
+.data .first h3 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: #444;
+  margin: 0;
+  line-height: 1;
+}
+
+.data .first h3 small {
+  font-size: 0.85rem;
+  color: #4caf50;
+  margin-left: 6px;
+}
+
+.data .first p {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 8px;
+}
+
+.vertical-divider {
+  width: 1px;
+  height: 55px;
+  background-color: #e5e5e5;
+  margin: 0 60px 0 30px;
+}
+
+.data .second {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data .second p {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0;
+}
+
+.data .second p span {
+  font-weight: 400;
+  color: #333;
+  margin-left: 6px;
+}
