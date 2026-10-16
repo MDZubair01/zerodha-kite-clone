@@ -19,15 +19,25 @@ const JWT_SECRET = process.env.TOKEN_KEY || "zerodha_clone_secret_key_123";
 
 const app = express();
 
-// 1. CORS MUST be registered before any routes
+// 1. CORS Configuration for Local & Render Production
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+  "http://localhost:3001",
+  "http://127.0.0.1:3001",
+  "https://zerodha-kite-frontend.onrender.com",
+  "https://zerodha-kite-dashboard-fca1.onrender.com"
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://127.0.0.1:3000",
-      "http://localhost:3001",
-      "http://127.0.0.1:3001",
-    ],
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith(".onrender.com")) {
+        return callback(null, true);
+      }
+      return callback(new Error("CORS policy violation: origin not allowed"), false);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
