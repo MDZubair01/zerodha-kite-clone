@@ -21,7 +21,7 @@ const Holdings = () => {
 
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/allHoldings", {
+      const res = await axios.get("https://zerodha-kite-backend.onrender.com/allHoldings", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllHoldings(Array.isArray(res.data) ? res.data : []);

@@ -24,7 +24,7 @@ const Funds = () => {
 
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/userFunds", {
+      const res = await axios.get("https://zerodha-kite-backend.onrender.com/userFunds", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFunds(res.data || { availableCash: 0, usedMargin: 0 });
@@ -54,7 +54,7 @@ const Funds = () => {
     try {
       setProcessing(true);
       const res = await axios.post(
-        "http://localhost:3002/addFunds",
+        "https://zerodha-kite-backend.onrender.com/addFunds",
         { amount: depositAmt },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -89,7 +89,7 @@ const Funds = () => {
     try {
       setProcessing(true);
       const res = await axios.post(
-        "http://localhost:3002/withdrawFunds",
+        "https://zerodha-kite-backend.onrender.com/withdrawFunds",
         { amount: withdrawAmt },
         { headers: { Authorization: `Bearer ${token}` } }
       );

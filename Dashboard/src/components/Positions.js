@@ -18,7 +18,7 @@ const Positions = () => {
 
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/allPositions", {
+      const res = await axios.get("https://zerodha-kite-backend.onrender.com/allPositions", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllPositions(Array.isArray(res.data) ? res.data : []);
@@ -50,7 +50,7 @@ const Positions = () => {
     try {
       setSquaringOffId(positionId);
       const res = await axios.post(
-        `http://localhost:3002/squareOffPosition/${positionId}`,
+        `https://zerodha-kite-backend.onrender.com/squareOffPosition/${positionId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

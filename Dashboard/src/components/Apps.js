@@ -46,7 +46,7 @@ const Apps = () => {
     if (!token) return;
 
     try {
-      const res = await axios.get("http://localhost:3002/userApiKey", {
+      const res = await axios.get("https://zerodha-kite-backend.onrender.com/userApiKey", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.data) {
@@ -71,7 +71,7 @@ const Apps = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:3002/generateApiKey",
+        "https://zerodha-kite-backend.onrender.com/generateApiKey",
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -99,7 +99,7 @@ const Apps = () => {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:3002/revokeApiKey",
+        "https://zerodha-kite-backend.onrender.com/revokeApiKey",
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

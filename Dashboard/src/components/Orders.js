@@ -19,7 +19,7 @@ const Orders = () => {
 
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/allOrders", {
+      const res = await axios.get("https://zerodha-kite-backend.onrender.com/allOrders", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(Array.isArray(res.data) ? res.data : []);
@@ -44,7 +44,7 @@ const Orders = () => {
 
     try {
       setCancellingId(orderId);
-      await axios.delete(`http://localhost:3002/cancelOrder/${orderId}`, {
+      await axios.delete(`https://zerodha-kite-backend.onrender.com/cancelOrder/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

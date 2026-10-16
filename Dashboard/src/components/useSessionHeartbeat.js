@@ -12,7 +12,7 @@ const useSessionHeartbeat = () => {
     // Check session status every 30 seconds
     const interval = setInterval(async () => {
       try {
-        const res = await axios.get("http://localhost:3002/checkSession", {
+        const res = await axios.get("https://zerodha-kite-backend.onrender.com/checkSession", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

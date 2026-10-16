@@ -18,7 +18,7 @@ const UserSessions = () => {
 
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/userSessions", {
+      const res = await axios.get("https://zerodha-kite-backend.onrender.com/userSessions", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSessions(Array.isArray(res.data) ? res.data : []);
@@ -44,7 +44,7 @@ const UserSessions = () => {
     try {
       setTerminatingId(userId);
       await axios.post(
-        `http://localhost:3002/terminateSession/${userId}`,
+        `https://zerodha-kite-backend.onrender.com/terminateSession/${userId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

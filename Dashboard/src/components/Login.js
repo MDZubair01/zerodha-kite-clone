@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL || "https://zerodha-kite-backend.onrender.com";
+
 const Login = ({ onLoginSuccess }) => {
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({
@@ -24,7 +27,7 @@ const Login = ({ onLoginSuccess }) => {
 
     const endpoint = isSignup ? "/signup" : "/login";
     try {
-      const res = await axios.post(`http://127.0.0.1:3002${endpoint}`, formData);
+      const res = await axios.post(`${API_BASE_URL}${endpoint}`, formData);
       if (res.data.success || res.data.token) {
         localStorage.setItem("token", res.data.token);
         if (res.data.user) {
